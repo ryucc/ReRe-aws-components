@@ -38,7 +38,7 @@ public class ListTablesResponseSerde implements ReReSerde {
 
     @Override
     public boolean accept(Class<?> clazz) {
-        return true;
+        return ListTablesResponse.class.isAssignableFrom(clazz);
     }
 
     public static class DataHolder implements Serializable {

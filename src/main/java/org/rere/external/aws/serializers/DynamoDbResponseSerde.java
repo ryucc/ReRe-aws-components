@@ -4,6 +4,7 @@ import org.rere.core.serde.PrimitiveSerde;
 import org.rere.core.serde.ReReSerde;
 import org.rere.core.serde.exceptions.SerializationException;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbResponse;
+import software.amazon.awssdk.services.dynamodb.model.ListTablesResponse;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -20,7 +21,7 @@ public class DynamoDbResponseSerde implements ReReSerde {
 
     @Override
     public boolean accept(Class<?> clazz) {
-        return true;
+        return DynamoDbResponse.class.isAssignableFrom(clazz);
     }
 
     @Override
