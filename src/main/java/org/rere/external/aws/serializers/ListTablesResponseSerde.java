@@ -13,12 +13,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListTablesResponseSerde implements ReReSerde<ListTablesResponse> {
+public class ListTablesResponseSerde implements ReReSerde {
 
     private static final PrimitiveSerde primitiveSerde = new PrimitiveSerde();
 
     @Override
-    public String serialize(ListTablesResponse listTablesResponse) throws SerializationException {
+    public String serialize(Object o) throws SerializationException {
+        ListTablesResponse listTablesResponse = (ListTablesResponse) o;
         List<String> tableNames = listTablesResponse.tableNames();
         String lastEvaluatedTableName = listTablesResponse.lastEvaluatedTableName();
 
@@ -33,6 +34,11 @@ public class ListTablesResponseSerde implements ReReSerde<ListTablesResponse> {
                 .tableNames(dataHolder.tableNames)
                 .lastEvaluatedTableName(dataHolder.lastEvaluatedTableName)
                 .build();
+    }
+
+    @Override
+    public boolean accept(Class<?> clazz) {
+        return true;
     }
 
     public static class DataHolder implements Serializable {

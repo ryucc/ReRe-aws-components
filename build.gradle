@@ -27,8 +27,8 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation group: 'io.github.ryucc', name: 'ReRe', version: '0.0.6-SNAPSHOT'
-    implementation group: 'software.amazon.awssdk', name: 'dynamodb', version: '2.30.31'
+    implementation group: 'io.github.ryucc', name: 'ReRe', version: '0.0.8'
+    implementation group: 'software.amazon.awssdk', name: 'dynamodb', version: '2.31.10'
 }
 
 test {
@@ -43,7 +43,7 @@ javadoc {
 }
 
 group = 'io.github.ryucc'
-version = '0.0.6'
+version = '0.0.8'
 
 publishing {
     publications {
